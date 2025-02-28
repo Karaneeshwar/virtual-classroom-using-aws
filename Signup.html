@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+    /* Page container styles */
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f7f9fc;
+}
+
+/* Card styles */
+.card {
+  max-width: 450px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo styles */
+.logo {
+  width: 120px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Text styles */
+.heading {
+  font-size: 2rem;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.subheading {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+/* Form group styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Input styles */
+.input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+/* Button styles */
+.main-button {
+  background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.main-button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 20px rgba(0, 86, 179, 0.3);
+}
+
+/* Additional styles */
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.login-link {
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="card">
+      <div class="text-center">
+        <img src="logo.png" alt="Logo" class="logo">
+        <h2 class="heading">Join Us Now!</h2>
+        <p class="subheading">Fill out the form below to become a part of our community!</p>
+      </div>
+
+      <form id="signUpForm">
+        <div class="form-group">
+          <label for="table" class="label">Select the type of user:</label>
+          <select id="user" name="user" class="input">
+            <option value="users">Student</option>
+            <option value="faculties">Faculty</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name" class="label">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="input"
+            placeholder="Enter your full name"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="gmail" class="label">Email</label>
+          <input
+            type="email"
+            id="gmail"
+            name="gmail"
+            class="input"
+            placeholder="Enter your email"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="phone_number" class="label">Phone Number</label>
+          <input
+            type="tel"
+            id="phone_number"
+            name="phone_number"
+            class="input"
+            placeholder="Enter your phone number"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="label">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="input"
+            placeholder="Enter your password"
+            required
+          >
+        </div>
+
+        <button type="submit" class="main-button">Sign Up</button>
+      </form>
+
+      <div class="text-center">
+        <p class="text-muted">
+          Already have an account? 
+          <a href="login.html" class="login-link">Login here</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById("signUpForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+      console.log(document.getElementById("user").value);
+  const formData = {
+    user: document.getElementById("user").value,
+    name: document.getElementById("name").value,
+    gmail: document.getElementById("gmail").value,
+    phone_number: document.getElementById("phone_number").value,
+    password: document.getElementById("password").value,
+  };
+
+  try {
+    const response = await fetch("https://3.110.88.52:5000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },  
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      alert(result.message || "Signup successful!");
+      window.location.href = "https://aws-project-virtualclassroom01.s3.ap-south-1.amazonaws.com/login.html";
+    } else {
+      const error = await response.json();
+      alert(error.message || "Signup failed. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error during signup:", error);
+    alert("An error occurred. Please try again later.");
+  }
+});
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Wave Home Page</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #FFFFFF;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 70px;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.platform-name {
+  font-size: 24px;
+  color: #007BFF;
+  font-weight: bold;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+  margin-left: auto;
+  align-items: center;
+}
+
+.nav-button {
+  background-color: #FFFFFF;
+  color: #007BFF;
+  border: 2px solid #007BFF;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #007BFF;
+  color: #FFFFFF;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #e0f7fa, #80deea);
+}
+
+.content-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  padding: 40px;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.text-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.heading {
+  color: #007BFF;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.paragraph {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.image-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.learning-image {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.main-button {
+  background-color: #007BFF;
+  color: #FFFFFF;
+  border: none;
+  padding: 15px 30px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.main-button:hover {
+  background-color: #0056b3;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <div class="logo-section">
+        <img src="https://aws-project-virtualclassroom01.s3.ap-south-1.amazonaws.com/logo.png" alt="Logo" class="logo">
+        <span class="platform-name">Brain Wave</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <div class="main-container">
+    <div class="content-section">
+      <div class="text-section">
+        <h1 class="heading">Empower Your Learning Journey with Brain Wave!</h1>
+        <p class="paragraph">Discover courses, track progress, and achieve your goals with ease.</p>
+        <p class="paragraph">Start today and unlock your potential on Brain Wave.</p>
+        <button class="main-button" onclick="navigateTo('https://aws-project-virtualclassroom01.s3.ap-south-1.amazonaws.com/login.html')">Login</button>
+        <button class="main-button" onclick="navigateTo('https://aws-project-virtualclassroom01.s3.ap-south-1.amazonaws.com/Signup.html')">Sign Up</button>
+      </div>
+      <div class="image-section">
+        <img src="https://aws-project-virtualclassroom01.s3.ap-south-1.amazonaws.com/learning.png" alt="Learning Platform" class="learning-image">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function navigateTo(page) {
+        window.location.href = page;
+    }
+
+  </script>
+</body>
+</html>
